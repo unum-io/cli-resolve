@@ -29,7 +29,7 @@ public class TupleFileParser {
    * @param chunkId assigned chunkId
    * @return The read tuples as TupleChunk
    */
-  public static TupleChunk parse(TupleType tupleType, File tupleFile, UUID chunkId) {
+  public static TupleChunk parse(TupleType tupleType, String tupleFamily, File tupleFile, UUID chunkId) {
     if (!tupleFile.isFile()) {
       log.error(String.format("%s is not a file.", tupleFile.getAbsolutePath()));
       throw new IllegalArgumentException();
@@ -43,7 +43,7 @@ public class TupleFileParser {
       throw new RuntimeException();
     }
 
-    return TupleChunk.of(tupleType.getTupleCls(), tupleType.getField(), chunkId, bytes);
+    return TupleChunk.of(tupleType.getTupleCls(), tupleFamily, tupleType.getField(), chunkId, bytes);
   }
 
   /**

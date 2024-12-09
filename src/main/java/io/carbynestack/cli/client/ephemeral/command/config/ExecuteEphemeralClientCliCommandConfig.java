@@ -34,6 +34,14 @@ public class ExecuteEphemeralClientCliCommandConfig extends EphemeralClientCliCo
       order = 1)
   private List<UUID> inputs = Lists.newArrayList();
 
+  @Parameter(
+      names = {"-c", "--compilationCommand"})
+  private String compilationCommand = "";
+
+  @Parameter(
+    names = {"-e", "--executionCommand"})
+  private String executionCommand = "";
+
   @Override
   public String getCommandName() {
     return COMMAND_NAME;
