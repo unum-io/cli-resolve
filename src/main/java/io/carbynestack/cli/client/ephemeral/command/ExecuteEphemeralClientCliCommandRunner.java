@@ -50,7 +50,7 @@ public class ExecuteEphemeralClientCliCommandRunner
                         getMessages().getString("execute.failure.read-code"), e));
     Either<ActivationError, List<ActivationResult>> result =
         client
-            .execute(code, c.getInputs())
+            .execute(code, c.getCompilationCommand(), c.getExecutionCommand(), c.getInputs())
             .toTry()
             .getOrElseThrow(
                 t ->

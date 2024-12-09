@@ -52,6 +52,15 @@ public class UploadTupleCastorClientCliCommandConfig extends CastorClientCliComm
   }
 
   @Parameter(
+    names = {"-m", "--tuple-family"},
+    required = true)
+  private String tupleFamily;
+
+  public String getTupleFamily() {
+    return tupleFamily;
+  }
+
+  @Parameter(
       names = {"-i", "--chunk-id"},
       descriptionKey = "upload.option.chunk-id",
       converter = UUIDTypeConverter.class,

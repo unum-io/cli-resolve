@@ -15,6 +15,7 @@ public class TelemetryPrinter {
     StringBuilder outputBuilder = new StringBuilder();
     for (TupleMetric metric : telemetryData.getMetrics()) {
       outputBuilder.append(metric.getType().toString()).append("\n");
+      outputBuilder.append("\t").append("family:\t").append(metric.getFamily()).append("\n");
       outputBuilder.append("\t").append("available:\t").append(metric.getAvailable()).append("\n");
       outputBuilder
           .append("\t")

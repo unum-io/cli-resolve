@@ -31,6 +31,7 @@ public class UploadTupleCastorClientCliCommandRunner
       TupleChunk chunk =
           TupleFileParser.parse(
               this.getConfig().getTupleType(),
+              this.getConfig().getTupleFamily(),
               this.getConfig().getTupleFile(),
               this.getConfig().getChunkId());
       Retry.retry(
